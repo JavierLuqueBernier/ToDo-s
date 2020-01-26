@@ -13,8 +13,12 @@
         <div class='container logo-container'>
             <a href="#" class='logo'>LOGO</a>
             <ul>
-                <li><form action="#"><input type="text" placeholder="Introduce una nueva actividad"></form></li>
-                <li><a href="">Calificar tarea</a></li>
+                <li><form action="#"><input type="text" size="30" placeholder="Introduce una nueva actividad"></form></li>
+                <li><select name="prioridad" id="#">
+                    <option value="URGENTE">URGENTE</option>
+                    <option value="Diaria">Diaria</option>
+                    <option value="Mensual">Mensual</option>
+                </select></li>
                 <li><input type="button" value="Guardar Actividad"></li>
             </ul>
         </div>
@@ -23,8 +27,12 @@
         <nav>
             <div class="filtro">
                 <ul>
-                    <li></li>
-                    <li><form action="#"><input type="text" placeholder=""></form></li>
+                    <li><select name="prioridad" id="#">
+                        <option value="URGENTE">URGENTE</option>
+                        <option value="Diaria">Diaria</option>
+                        <option value="Mensual">Mensual</option>
+                    </select></li>
+                    <li><form action="#"><input type="text" placeholder="¿Que buscas?"></form></li>
                 </ul>
             </div>
             <div>

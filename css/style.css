@@ -49,11 +49,21 @@ header ul {
     list-style: none;
 }
 
-header ul li {
-    display: inline-block;
+header ul li input {
+    border-radius: 2px;
 }
 
-header ul li a {
+header ul li {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+header ul li:first-child {
+    width: 200px;
+    size: 300px;
+}
+
+/*header ul li a {
     display: block;
     padding: .5rem 1rem;
 }
@@ -62,9 +72,12 @@ header ul li a:hover {
     background-color: rgb(255, 102, 0);
     transition: .4s;
     border-radius: 5px;
-}
+}*/ /*Lo comentado sería para hacer efecto en algún casilla creada */
 
-main nav .filtro {
+main nav .filtro {    
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: palegreen;
     padding: 1rem 0 ;
 }
@@ -73,4 +86,9 @@ main nav .filtro ul {
     margin: 0;
     padding: 0;
     list-style: none;
+}
+
+main ul li {
+    display: inline-block;
+    margin: 0 10px;
 }
