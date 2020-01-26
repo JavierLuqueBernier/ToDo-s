@@ -7,6 +7,70 @@ color rojo: #fa573a
 color azul: #21242e; 
 */
 
-body{
-    background-color: tomato;
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    color: #333333;
+    font-size: 1.3em;
+}
+
+h2{
+    font-size: 2rem;
+    line-height: 1em;
+}
+
+.container {
+    width: 95%;
+}
+
+header {
+    background-color: #333333;
+    color: white;
+    padding: 1rem 0;
+}
+
+header a {
+    color: white;
+    text-decoration: none;
+}
+
+.logo-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    margin-left: 1rem;
+}
+
+header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+header ul li {
+    display: inline-block;
+}
+
+header ul li a {
+    display: block;
+    padding: .5rem 1rem;
+}
+
+header ul li a:hover {
+    background-color: rgb(255, 102, 0);
+    transition: .4s;
+    border-radius: 5px;
+}
+
+main nav .filtro {
+    background-color: palegreen;
+    padding: 1rem 0 ;
+}
+
+main nav .filtro ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
 }
