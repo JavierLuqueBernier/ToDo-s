@@ -1,0 +1,12 @@
+@import url(reset.css); 
+@import url('https://fonts.googleapis.com/css?family=Handlee|Montserrat:400,700&display=swap');
+/* 
+font-family: 'Montserrat', sans-serif;
+font-family: 'Handlee', cursive;
+color rojo: #fa573a
+color azul: #21242e; 
+*/
+
+body{
+    background-color: tomato;
+}
