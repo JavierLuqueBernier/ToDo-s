@@ -37,10 +37,12 @@ header a {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .logo {
     margin-left: 1rem;
+    width: 100%;
 }
 
 header ul {
@@ -54,8 +56,9 @@ header ul li input {
 }
 
 header ul li {
-    display: inline-block;
-    margin: 0 10px;
+    display: block;
+    margin: 5px 10px;
+
 }
 
 header ul li:first-child {
@@ -74,6 +77,8 @@ header ul li a:hover {
     border-radius: 5px;
 }*/ /*Lo comentado sería para hacer efecto en algún casilla creada */
 
+/*------------------------------------------------------------------------------------------------------------------------------------------*/
+
 main nav .filtro {    
     display: flex;
     justify-content: space-between;
@@ -91,4 +96,38 @@ main nav .filtro ul {
 main ul li {
     display: inline-block;
     margin: 0 10px;
+}
+
+main .actividades {
+    margin: .5rem 0;
+}
+
+/*--------------------------------------------------------------------------------------------------------------------------------------------*/
+footer {
+    background-color: #333333;
+    padding: 1.5rem 0;
+    text-align: center;
+    color: aliceblue;
+}
+
+@media (min-width: 48.06em){
+    
+    .logo-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    
+    .logo {
+        margin-left: 1rem;
+        width: 20%;
+    }
+
+    header ul li {
+        display: inline-block;
+        margin: 5px 10px;
+    
+    }
+    
 }
