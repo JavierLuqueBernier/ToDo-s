@@ -59,10 +59,10 @@ header ul {
     display: inline;
     display: none;
 }
-
-header ul.show {
+.show{
     display: block;
 }
+
 
 header ul li input {
     border-radius: 2px;
