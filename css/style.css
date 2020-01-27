@@ -45,6 +45,11 @@ header a {
     width: 80%; 
 }
 
+.menu-icon {
+    display: inline-block;
+    cursor: pointer;
+}
+
 
 
 header ul {
@@ -52,10 +57,12 @@ header ul {
     padding: 0;
     list-style: none;
     display: inline;
-
+    display: none;
 }
 
-
+header ul.show {
+    display: block;
+}
 
 header ul li input {
     border-radius: 2px;
@@ -118,7 +125,10 @@ footer {
 
 @media (min-width: 48.06em){
 
-    
+    .menu-icon{
+        display: none;
+    }
+
     .logo-container {
         display: flex;
         justify-content: space-between;
@@ -129,6 +139,14 @@ footer {
     .logo {
         margin-left: 1rem;
         width: 20%;
+    }
+
+    header ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        margin-top: 0;
+        display: unset;
     }
 
     header ul li {
