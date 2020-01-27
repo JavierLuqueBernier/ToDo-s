@@ -41,28 +41,21 @@ header a {
 }
 
 .logo {
-    margin-left: 1rem;
-    width: 70%;
+    margin-left: 1.5rem;
+    width: 80%; 
 }
 
-.menu-icon {
-    display: inline-block;
-    cursor: pointer;
 
-}
 
 header ul {
-    margin: 0;
+    margin: .5rem 1rem;
     padding: 0;
     list-style: none;
-    margin-top: 1rem;
-    display: none;
-}
-
-header ul.show {
-    display: block;
+    display: inline;
 
 }
+
+
 
 header ul li input {
     border-radius: 2px;
@@ -125,9 +118,6 @@ footer {
 
 @media (min-width: 48.06em){
 
-    .menu-icon {
-        display: none;
-    }
     
     .logo-container {
         display: flex;
@@ -139,14 +129,6 @@ footer {
     .logo {
         margin-left: 1rem;
         width: 20%;
-    }
-
-    header ul {
-        margin: 0;
-        padding: 0;
-        list-style: none;
-        margin-top: 0;
-        display: unset;
     }
 
     header ul li {
