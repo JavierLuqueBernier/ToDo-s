@@ -9,12 +9,12 @@ agendaActividades = [
     {
         id: 2,
         nombre: 'Comprar fruta',
-        prioridad: 'Urgente',
+        prioridad: 'urgente',
     },
     {
         id: 3,
         nombre: 'Revisar presión de los neumáticos',
-        prioridad: 'Mensual',
+        prioridad: 'mensual',
     },
     
 ];

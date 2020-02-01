@@ -1,6 +1,5 @@
-//funcion filtra por prioridad, la funcion recibe una lista total y me devuelve una lista filtrada con las actividades que cumplan dicho parametro.
-
-function filtrarPrioridad(pListaActividades, pPrioridad) {
+//funcion filtra por prioridad, la funcion recibe una lista total y me devuelve una lista filtrada con las actividades que tengan la prioridad pasado por parametro.
+function filtrarXPrioridad(pListaActividades, pPrioridad) {
 
 
     var listaFiltrada = new Array();
@@ -27,7 +26,7 @@ function filtrarBusqueda(pListaActividades, pPalabraBuscar) {
     var listaFiltrada = new Array();
 
     var listaFiltrada = pListaActividades.filter( actividad => {
-        var  nombreActividad = actividad.nombre.toLowerCase();
+        var nombreActividad = actividad.nombre.toLowerCase();
 
         return nombreActividad.includes(pPalabraBuscar);
     })

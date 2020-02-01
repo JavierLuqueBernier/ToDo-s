@@ -31,48 +31,69 @@ function desplegarMenu(event){
 
 //fin
 
-//funcion para pintar cualquier lista
 
-function pintarActividades(pListaActividades){ //aqui repintamos la lista completa porque estamos pintando un filtro
-    seccionActividades.innerHTML = ""; //aqui estoy borrando todos los pacientes antes pintados para que se muestren los que pinto ahora
+//filtro de prioridad
 
-    if(pListaActividades.length !=0) {
-        pListaActividades.forEach( actividad => { //aqui estamos recorriendo cada uno de los elementos de la lista para ver cual cumple lo que buscamos
-            seccionActividades.innerHTML += `<article>
-                                                <div>
-                                                    <h4>${actividad.nombre}</h4>
-                                                    <ul>
-                                                        <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
-                                                    </ul>
-                                                </div>
-                                            </article>
-        <div class="line"></div> <hr>` //todo lo anterior es un template literal        
-        })
+var selectorPrioridad = document.querySelector('#buscarprioridad'); //podriamos tambien cogerlo por ElementById pero es para tener ejemplos de ambos
 
-    } else{
-
-        seccionActividades.innerHTML = "<h2>No hay registros con esas condiciones</h2>"
-    }
-
-}
-
-pintarActividades(agendaActividades);
-
-//fin
-
-//filtro de diagnostico
-var selectorBusquedaPrioridad = document.querySelector('#buscarprioridad'); //podriamos tambien cogerlo por ElementById pero es para tener ejemplos de ambos
-
-selectorBusquedaPrioridad.addEventListener('change', recogePrioridad);
+selectorPrioridad.addEventListener('change', recogePrioridad);
 
 function recogePrioridad(e) {
     //e.target.value me devuelve la prioridad seleccionada cada vez que cambio el selector
     let prioridad = e.target.value;
 
     if (prioridad != "") {
-        let listaFiltradaPrioridad = filtrarPrioridad(listaActividades, prioridad); //estamos metiendo el resultado del filtrado en una variable para poder sacarlo luego y meterlo en la funcion de pintado.
-        pintarPacientes(listaFiltradaPrioridad);
+        let listaFiltradaPrioridad = filtrarXPrioridad(agendaActividades, prioridad); //estamos metiendo el resultado del filtrado en una variable para poder sacarlo luego y meterlo en la funcion de pintado.
+        pintarActividades(listaFiltradaPrioridad);
     } else {
-        pintarPacientes(listaActividades);
+        pintarActividades(agendaActividades);
     }
 }
+//fin
+
+
+
+//funcion de pintado de cualquier lista de tipo actividad.
+
+function pintarActividades(pListaActividades){ //aqui repintamos la lista completa porque estamos pintando un filtro
+    seccionActividades.innerHTML = ""; //aqui estoy borrando todos los pacientes antes pintados para que se muestren los que pinto ahora
+
+    if(pListaActividades.length !=0) {
+        pListaActividades.forEach( actividad => { //aqui estamos recorriendo cada uno de los elementos de la lista para ver cual cumple lo que buscamos
+            seccionActividades.innerHTML += `<article>                
+                                                <div>    
+                                                    <h4>${actividad.nombre}</h4>
+                                                    <ul>
+                                                        <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
+                                                        </ul>
+                                                </div>
+                                             </article>
+                                             <div class="line"></div>
+                                            <hr>` //todo lo anterior es un template literal        
+        })
+
+    } else{
+        seccionActividades.innerHTML = "<h2>No hay registros con esas condiciones</h2>"
+    }
+}
+
+pintarActividades(agendaActividades);
+//fin
+
+
+
+//funcion filtrar por nombre
+
+var busqueda = document.querySelector('#search');
+
+busqueda.addEventListener('keyup', recogerBusqueda);
+
+function recogerBusqueda(e) {
+
+    let palabraBuscar = e.target.value.toLowerCase();
+
+    var listaBusqueda = filtrarBusqueda(agendaActividades, palabraBuscar);
+
+    pintarActividades(listaBusqueda);
+}
+//fin
