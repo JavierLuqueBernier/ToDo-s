@@ -14,16 +14,19 @@
             <a href="#" class='logo'>LOGO</a>
             <span class="menu-icon"><i class="fas fa-chevron-up"></i></span>
             <ul class="">
-                <li><form action="#"><input type="text" size="30" placeholder="Introduce una nueva actividad"></form></li>
+                <li><form action="#"><input type="text" size="30" id="nuevaactividad" placeholder="Introduce una nueva actividad"></form></li>
+                <!-- SELECCION DE PRIORIDAD -->
                 <li><select name="prioridad" id="#">
                     <option value="URGENTE">URGENTE</option>
                     <option value="Diaria">Diaria</option>
                     <option value="Mensual">Mensual</option>
                 </select></li>
-                <li><input type="button" value="Guardar Actividad"></li>
+                <!-- BOTON DE GUARDADO-->
+                <li><input type="button" id="btn" value="Guardar Actividad"></li>
             </ul>
         </div>
     </header>
+    <!--------------------FILTRO-------------------->
     <main>
         <nav>
             <div class="filtro">

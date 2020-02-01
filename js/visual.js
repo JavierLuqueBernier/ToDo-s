@@ -3,6 +3,10 @@
 
 var seccionActividades = document.getElementById('listaactividades');
 
+var boton = document.getElementById('btn');
+
+
+// ----- BOTON PARA OCULTAR MENÚ -------//
 
 var menuBtn = document.querySelector('.menu-icon');
     menu = document.querySelector('header ul');
