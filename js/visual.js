@@ -135,6 +135,6 @@ function guardarDatos(pNombre, pPrioridad) {
     }
 
     agendaActividades.push(registro); //aqui lo guardamos
-    console.log(registro);
+    console.log(registro); 
     ultimoId++;
 }
