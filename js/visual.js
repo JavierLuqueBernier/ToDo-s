@@ -5,7 +5,8 @@ var seccionActividades = document.getElementById('listaactividades');
 
 var boton = document.getElementById('btn');
 
-var ultimoId = 4;
+var ultimoId = 7;
+
 
 
 // ----- BOTON PARA OCULTAR MENÚ -------//
@@ -118,14 +119,14 @@ function recogerBusqueda(e) {
     }
     else {
 
-        //guardarDatos(nombre);
+        guardarDatos(nombre);
         document.getElementById('mensaje').innerText = "";
         document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
 
     }
 })
-/*
-function guardarDatos(pNombre) {
+
+function guardarDatos(pNombre, pPrioridad) {
 
     let registro = {  //esto es un json
         id: ultimoId,
@@ -134,6 +135,6 @@ function guardarDatos(pNombre) {
     }
 
     agendaActividades.push(registro); //aqui lo guardamos
-    pintarActividades(registro);
+    console.log(registro);
     ultimoId++;
-} */
+}
