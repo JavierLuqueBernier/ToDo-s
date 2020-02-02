@@ -72,7 +72,7 @@ function pintarActividades(pListaActividades){ //aqui repintamos la lista comple
                                                     <h4>${actividad.nombre}</h4>
                                                     <ul>
                                                         <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
-                                                        <li id="delete"><span class="delete-icon"><i class="fas fa-trash-alt" onclick="eventoEliminar(this)"></i></span></li>
+                                                        <li id="delete"><a href="#"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
                                                         </ul>
                                                 </div>
                                              </article>
