@@ -101,3 +101,26 @@ function recogerBusqueda(e) {
     pintarActividades(listaBusqueda);
 }
 //fin
+
+// Captura de datos para introducir en el array
+
+boton.addEventListener('click', event => { //lanzo el evento
+    event.preventDefault(); //bloqueo la accion por defecto
+    var nombre = document.getElementById('nuevaactividad').value; //aqui capturamos el valor del nombre de la actividad
+
+    if (nombre.length == 0 || nombre[0] == " ") {
+        //mandar un mensaje al usuario
+        document.getElementById('mensaje').innerText = "Los campos no pueden estar vacios";
+        document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
+
+    }
+    else {
+
+        guardarDatos(nombre);
+        document.getElementById('mensaje').innerText = "";
+        document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
+
+    }
+
+
+})
