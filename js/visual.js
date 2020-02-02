@@ -1,4 +1,4 @@
-// el nombre del array del inicial es agendaActividades
+// el nombre del array inicial es agendaActividades
 // el nombre de la seccion es listaactividades
 
 var seccionActividades = document.getElementById('listaactividades');
@@ -72,7 +72,7 @@ function pintarActividades(pListaActividades){ //aqui repintamos la lista comple
                                                     <h4>${actividad.nombre}</h4>
                                                     <ul>
                                                         <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
-                                                        <li id="delete"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></li>
+                                                        <li id="delete"><span class="delete-icon"><i class="fas fa-trash-alt" onclick="eventoEliminar(this)"></i></span></li>
                                                         </ul>
                                                 </div>
                                              </article>
@@ -140,7 +140,6 @@ function pintar(pObjeto) {
     var h4 = document.createElement('h4');
     var ul = document.createElement('ul');
     var li = document.createElement('li');
-    var li = document.createElement('li');
     var hr = document.createElement('hr');
 
     var textoInteriorh4 = document.createTextNode(`${pObjeto.nombre}`);
@@ -156,7 +155,40 @@ function pintar(pObjeto) {
  
     seccionActividades.appendChild(hr);
     seccionActividades.appendChild(article);
-
 }
 
 //fin
+/******************************************************/
+/**************** Botón de borrado para cada Actividad ***********/
+
+function eventoEliminar(e) {
+    var parent = e.parentElement.parentElement;
+    console.log(parent.id);
+    deleteActividad(agendaActividades, parent.id);
+}
+
+/* FUNCIÓN PARA BORRAR EL POSIT QUE YO QUIERA */
+
+
+function deleteActividad(pListaActividades, pId) {
+
+
+    for (let i = 0; i < pListaActividades.length; i++) {
+
+        if (pListaActividades[i].id == pId) {
+            var positionDelete = pListaActividades.indexOf(pListaActividades[i]);
+            pListaActividades.splice(positionDelete, 1);
+        }
+
+    }
+
+    let child = document.getElementById(pId);
+    tareas.removeChild(child);
+
+    /*postAllPosits(pListaActividades)*/
+
+    return pListaActividades;
+}
+
+
+/******************************************************/
