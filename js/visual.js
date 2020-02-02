@@ -72,6 +72,7 @@ function pintarActividades(pListaActividades){ //aqui repintamos la lista comple
                                                     <h4>${actividad.nombre}</h4>
                                                     <ul>
                                                         <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
+                                                        <li id="delete"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></li>
                                                         </ul>
                                                 </div>
                                              </article>
@@ -139,10 +140,12 @@ function pintar(pObjeto) {
     var h4 = document.createElement('h4');
     var ul = document.createElement('ul');
     var li = document.createElement('li');
+    var li = document.createElement('li');
     var hr = document.createElement('hr');
 
     var textoInteriorh4 = document.createTextNode(`${pObjeto.nombre}`);
     var textoInteriorli = document.createTextNode(`Prioridad: ${pObjeto.prioridad}`);
+    //var textoInteriorli = document.createTextNode(`<span class="delete-icon"><i class="fas fa-trash-alt"></i></span>`)
 
     li.appendChild(textoInteriorli);
     ul.appendChild(li);
