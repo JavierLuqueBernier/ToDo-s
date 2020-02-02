@@ -121,6 +121,18 @@ boton.addEventListener('click', event => { //lanzo el evento
         document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
 
     }
-
-
 })
+
+function guardarDatos(pNombre) {
+
+    let registro = {  //esto es un json
+        id: ultimoId,
+        nombre: pNombre,
+        prioridad: pPrioridad
+    }
+
+    agendaActividades.push(registro); //aqui lo guardamos
+    pintarActividades(registro);
+    ultimoId++;
+
+}
