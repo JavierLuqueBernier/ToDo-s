@@ -18,16 +18,11 @@ agendaActividades = [
     },
     {
         id: 4,
-        nombre: 'Bajar la basura',
-        prioridad: 'Diaria',
-    },
-    {
-        id: 5,
         nombre: 'Revisar facturas',
         prioridad: 'Mensual',
     },
     {
-        id: 6,
+        id: 5,
         nombre: 'Cargar los auriculares',
         prioridad: 'URGENTE',
     },

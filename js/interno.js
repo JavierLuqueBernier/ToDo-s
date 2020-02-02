@@ -33,3 +33,22 @@ function filtrarBusqueda(pListaActividades, pPalabraBuscar) {
 
     return listaFiltrada;
 }
+
+//fin
+
+//funcion para guardar los datos (por el motivo que sea da problemas con la funcion de pintarActividades en la linea 68, creo otra funcion de pintado a parte llamada "pintar")
+
+function guardarDatos(pNombre, pPrioridad = "URGENTE") {    //he puesto que si no se selecciona prioridad de primeras, sea Urgente por defecto
+
+    let registro = {  //esto es un json
+        id: ultimoId,
+        nombre: pNombre,
+        prioridad: pPrioridad
+    }
+
+    agendaActividades.push(registro); //aqui lo guardamos
+    pintar(registro); 
+    ultimoId++;
+}
+
+//fin

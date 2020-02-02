@@ -5,7 +5,7 @@ var seccionActividades = document.getElementById('listaactividades');
 
 var boton = document.getElementById('btn');
 
-var ultimoId = 7;
+var ultimoId = 6;
 
 
 
@@ -41,7 +41,7 @@ function desplegarMenu(event){
 
 //filtro de prioridad
 
-var selectorPrioridad = document.querySelector('#buscarprioridad'); //podriamos tambien cogerlo por ElementById pero es para tener ejemplos de ambos
+var selectorPrioridad = document.querySelector('#buscarPrioridad'); //podriamos tambien cogerlo por ElementById pero es para tener ejemplos de ambos
 
 selectorPrioridad.addEventListener('change', recogePrioridad);
 
@@ -107,9 +107,12 @@ function recogerBusqueda(e) {
 
 // Captura de datos para introducir en el array
 
- boton.addEventListener('click', event => { //lanzo el evento
+boton.addEventListener('click', event => { //lanzo el evento
     event.preventDefault(); //bloqueo la accion por defecto
     var nombre = document.getElementById('nuevaactividad').value; //aqui capturamos el valor del nombre de la actividad
+
+    var electorPrioridad = document.getElementById('elegirPrioridad').value; //aqui capturamos el valor de la prioridad
+    
 
     if (nombre.length == 0 || nombre[0] == " ") {
         //mandar un mensaje al usuario
@@ -119,22 +122,38 @@ function recogerBusqueda(e) {
     }
     else {
 
-        guardarDatos(nombre);
+        guardarDatos(nombre, electorPrioridad);
         document.getElementById('mensaje').innerText = "";
         document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
 
     }
 })
 
-function guardarDatos(pNombre, pPrioridad) {
+//fin
 
-    let registro = {  //esto es un json
-        id: ultimoId,
-        nombre: pNombre,
-        prioridad: pPrioridad
-    }
+//funcion de pintado creada por incompatibilidad de la funcion "guardarDatos" con "pintarActividades"
 
-    agendaActividades.push(registro); //aqui lo guardamos
-    console.log(registro); 
-    ultimoId++;
+function pintar(pObjeto) { 
+    var article = document.createElement('article');
+    var div = document.createElement('div');
+    var h4 = document.createElement('h4');
+    var ul = document.createElement('ul');
+    var li = document.createElement('li');
+    var hr = document.createElement('hr');
+
+    var textoInteriorh4 = document.createTextNode(`${pObjeto.nombre}`);
+    var textoInteriorli = document.createTextNode(`Prioridad: ${pObjeto.prioridad}`);
+
+    li.appendChild(textoInteriorli);
+    ul.appendChild(li);
+    h4.appendChild(textoInteriorh4);
+    div.appendChild(h4);
+    div.appendChild(ul);
+    article.appendChild(div);
+ 
+    seccionActividades.appendChild(hr);
+    seccionActividades.appendChild(article);
+
 }
+
+//fin
