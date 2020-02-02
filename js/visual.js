@@ -5,6 +5,8 @@ var seccionActividades = document.getElementById('listaactividades');
 
 var boton = document.getElementById('btn');
 
+var ultimoId = 4;
+
 
 // ----- BOTON PARA OCULTAR MENÚ -------//
 
@@ -104,7 +106,7 @@ function recogerBusqueda(e) {
 
 // Captura de datos para introducir en el array
 
-boton.addEventListener('click', event => { //lanzo el evento
+ boton.addEventListener('click', event => { //lanzo el evento
     event.preventDefault(); //bloqueo la accion por defecto
     var nombre = document.getElementById('nuevaactividad').value; //aqui capturamos el valor del nombre de la actividad
 
@@ -116,13 +118,13 @@ boton.addEventListener('click', event => { //lanzo el evento
     }
     else {
 
-        guardarDatos(nombre);
+        //guardarDatos(nombre);
         document.getElementById('mensaje').innerText = "";
         document.getElementById('form').reset(); //aqui estamos haciendo que al pulsar guardar, se resetee el campo y se vacie
 
     }
 })
-
+/*
 function guardarDatos(pNombre) {
 
     let registro = {  //esto es un json
@@ -134,4 +136,4 @@ function guardarDatos(pNombre) {
     agendaActividades.push(registro); //aqui lo guardamos
     pintarActividades(registro);
     ultimoId++;
-}
+} */
