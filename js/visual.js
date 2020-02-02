@@ -181,7 +181,8 @@ deleteBtn.addEventListener('click', deleteActividad);
 
 function deleteActividad(pListaActividades, pId) {
 
-    var actividadBorrar = pListaActividades.find( (actividad) =>{
+    var actividadBorrar = pListaActividades.find( (actividad) =>{ //otra vez el mismo fallo que llevo teniendo todo el fin de semana. Aparece en consola al intentar eliminar cualquier actividad que pListaActividades no es una funcion cuando no tiene sentido que lo sea...
+        
         return actividad.id == pId; //aqui estoy buscando y capturando si hay algun objeto que tenga la misma id que busco
     })
 
