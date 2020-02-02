@@ -167,27 +167,38 @@ function eventoEliminar(e) {
     deleteActividad(agendaActividades, parent.id);
 }
 
+
+// CAPTURAR BOTON PARA ELIMINAR
+
+var deleteBtn = document.querySelector('.delete-icon'); //aqui utilizamos querySelector igual que si hiciedramos getElementById para localizar el boton a capturar
+
+deleteBtn.addEventListener('click', deleteActividad);
+
+//FIN
+
 /* FUNCIÓN PARA BORRAR EL POSIT QUE YO QUIERA */
 
 
 function deleteActividad(pListaActividades, pId) {
 
+    var actividadBorrar = pListaActividades.find( (actividad) =>{
+        return actividad.id == pId; //aqui estoy buscando y capturando si hay algun objeto que tenga la misma id que busco
+    })
 
-    for (let i = 0; i < pListaActividades.length; i++) {
+    //Para usar splice necesito la posicion del objeto capturado en la variable actividadBorrar
 
-        if (pListaActividades[i].id == pId) {
-            var positionDelete = pListaActividades.indexOf(pListaActividades[i]);
-            pListaActividades.splice(positionDelete, 1);
-        }
+    var posicionActividad = pListaActividades.findIndex( (actividad) =>{
 
-    }
+         return actividad.id == actividadBorrar.id
+    });
+    
+    pListaActividades.splice(posicionActividad, 1); //estoy sacando el objeto objetivo del array original con splice
+    
 
-    let child = document.getElementById(pId);
-    tareas.removeChild(child);
+    var div = document.getElementsByTagName('div')[0]; div.innerHTML = ''; //div es un array de un solo elemento, por lo que selecciono la posicion '0' y lo que hacemos con el div.innerHTML es decir que todo el contenido del objeto que coincida con nuestra busqueda debe quedarse vacio.
 
-    /*postAllPosits(pListaActividades)*/
+    pintar(pListaActividades, pListaActividades.length); 
 
-    return pListaActividades;
 }
 
 
