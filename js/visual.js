@@ -134,5 +134,4 @@ function guardarDatos(pNombre) {
     agendaActividades.push(registro); //aqui lo guardamos
     pintarActividades(registro);
     ultimoId++;
-
 }
