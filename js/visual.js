@@ -62,7 +62,7 @@ function recogePrioridad(e) {
 
 //funcion de pintado de cualquier lista de tipo actividad.
 
-function pintarActividades(pListaActividades){ //aqui repintamos la lista completa porque estamos pintando un filtro
+function pintarActividades(pListaActividades){ //aqui repintamos la lista completa
     seccionActividades.innerHTML = ""; //aqui estoy borrando todos los pacientes antes pintados para que se muestren los que pinto ahora
 
     if(pListaActividades.length !=0) {
@@ -172,7 +172,9 @@ function eventoEliminar(e) {
 
 var deleteBtn = document.querySelector('.delete-icon'); //aqui utilizamos querySelector igual que si hiciedramos getElementById para localizar el boton a capturar
 
-deleteBtn.addEventListener('click', deleteActividad);
+deleteBtn.addEventListener('click', (event)=> {
+    deleteActividad(agendaActividades, );
+});
 
 //FIN
 
