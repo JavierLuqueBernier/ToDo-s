@@ -117,21 +117,42 @@ main .actividades {
 
 main nav .listaactividades {
     display: flex;
-    
+
 }
 
+main #listaactividades hr {
+    padding: 0;
+    margin: 0;
+}
 
-/*
-main .listaactividades .Diaria {
+main #listaactividades article {
+    padding: 10px 0;
+}
+
+main #listaactividades h4 {
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+main #listaactividades ul {
+    justify-content: space-between;
+}
+
+main #listaactividades ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+main #listaactividades .Diaria {
     background-color: rgb(255, 255, 89);
 }
-main .listaactividades .Mensual {
+main #listaactividades .Mensual {
     background-color: rgb(106, 255, 47);
 }
-main .listaactividades .URGENTE {
+main #listaactividades .URGENTE {
     background-color: rgb(255, 67, 34);
 }
-*/
+
 
 /*--------------------------------------------------------------------------------------------------------------------------------------------*/
 footer {

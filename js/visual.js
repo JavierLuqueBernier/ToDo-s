@@ -69,8 +69,8 @@ function pintarActividades(pListaActividades){ //aqui repintamos la lista comple
         pListaActividades.forEach( actividad => { //aqui estamos recorriendo cada uno de los elementos de la lista para ver cual cumple lo que buscamos
             seccionActividades.innerHTML += `<article id="${actividad.id}" class="${actividad.prioridad} ">
                                                 <h4>${actividad.nombre}</h4>
-                                                <ul>
-                                                    <li>Prioridad: <strong></strong></li>
+                                                <ul class="container">
+                                                    <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
                                                     <li><a href="#" title="eliminar" class="eliminar"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
                                                 </ul>
                                             </article>
@@ -134,8 +134,8 @@ boton.addEventListener('click', event => { //lanzo el evento
 function pintarActividad(pActividades) {
     seccionActividades.innerHTML += `<article id="${pActividades.id}" class="${pActividades.prioridad}">
                                         <h4>${pActividades.nombre}</h4>
-                                        <ul>
-                                            <li>Prioridad: <strong></strong></li>
+                                        <ul class="container">
+                                            <li>Prioridad: <strong>${pActividad.prioridad}</strong></li>
                                             <li><a href="#" title="eliminar" class="eliminar"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
                                         </ul>
                                     </article>`
