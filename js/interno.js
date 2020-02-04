@@ -47,7 +47,7 @@ function guardarDatos(pNombre, pPrioridad = "URGENTE") {    //he puesto que si n
     }
 
     agendaActividades.push(registro); //aqui lo guardamos
-    pintar(registro); 
+    pintarActividad(registro); 
     ultimoId++;
 }
 

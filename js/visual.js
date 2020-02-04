@@ -67,16 +67,13 @@ function pintarActividades(pListaActividades){ //aqui repintamos la lista comple
 
     if(pListaActividades.length !=0) {
         pListaActividades.forEach( actividad => { //aqui estamos recorriendo cada uno de los elementos de la lista para ver cual cumple lo que buscamos
-            seccionActividades.innerHTML += `<article>                
-                                                <div>    
-                                                    <h4>${actividad.nombre}</h4>
-                                                    <ul>
-                                                        <li>Prioridad: <strong>${actividad.prioridad}</strong></li>
-                                                        <li id="delete"><a href="#"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
-                                                        </ul>
-                                                </div>
-                                             </article>
-                                             <div class="line"></div>
+            seccionActividades.innerHTML += `<article id="${actividad.id}" class="${actividad.prioridad} ">
+                                                <h4>${actividad.nombre}</h4>
+                                                <ul>
+                                                    <li>Prioridad: <strong></strong></li>
+                                                    <li><a href="#" title="eliminar" class="eliminar"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
+                                                </ul>
+                                            </article>
                                             <hr>` //todo lo anterior es un template literal        
         })
 
@@ -132,77 +129,35 @@ boton.addEventListener('click', event => { //lanzo el evento
 
 //fin
 
-//funcion de pintado creada por incompatibilidad de la funcion "guardarDatos" con "pintarActividades"
+//segunda funcion de pintado?
 
-function pintar(pObjeto) { 
-    var article = document.createElement('article');
-    var div = document.createElement('div');
-    var h4 = document.createElement('h4');
-    var ul = document.createElement('ul');
-    var li = document.createElement('li');
-    var hr = document.createElement('hr');
-
-    var textoInteriorh4 = document.createTextNode(`${pObjeto.nombre}`);
-    var textoInteriorli = document.createTextNode(`Prioridad: ${pObjeto.prioridad}`);
-    //var textoInteriorli = document.createTextNode(`<span class="delete-icon"><i class="fas fa-trash-alt"></i></span>`)
-
-    li.appendChild(textoInteriorli);
-    ul.appendChild(li);
-    h4.appendChild(textoInteriorh4);
-    div.appendChild(h4);
-    div.appendChild(ul);
-    article.appendChild(div);
- 
-    seccionActividades.appendChild(hr);
-    seccionActividades.appendChild(article);
+function pintarActividad(pActividades) {
+    seccionActividades.innerHTML += `<article id="${pActividades.id}" class="${pActividades.prioridad}">
+                                        <h4>${pActividades.nombre}</h4>
+                                        <ul>
+                                            <li>Prioridad: <strong></strong></li>
+                                            <li><a href="#" title="eliminar" class="eliminar"><span class="delete-icon"><i class="fas fa-trash-alt"></i></span></a></li>
+                                        </ul>
+                                    </article>`
+        eliminar = document.querySelectorAll('.eliminar')
+        for(boton of eliminar){
+            boton.addEventListener('click', eliminarActividad)
+    }        
 }
 
-//fin
-/******************************************************/
-/**************** Botón de borrado para cada Actividad ***********/
+// borrar
 
-function eventoEliminar(e) {
-    var parent = e.parentElement.parentElement;
-    console.log(parent.id);
-    deleteActividad(agendaActividades, parent.id);
-}
+var actividadArt = document.getElementsByTagName('article')
+//console.log(actividadArt); reconoce que tengo 5 articulos en el array original
 
-
-// CAPTURAR BOTON PARA ELIMINAR
-
-var deleteBtn = document.querySelector('.delete-icon'); //aqui utilizamos querySelector igual que si hiciedramos getElementById para localizar el boton a capturar
-
-deleteBtn.addEventListener('click', (event)=> {
-    deleteActividad(agendaActividades, );
-});
-
-//FIN
-
-/* FUNCIÓN PARA BORRAR EL POSIT QUE YO QUIERA */
-
-
-function deleteActividad(pListaActividades, pId) {
-
-    var actividadBorrar = pListaActividades.find( (actividad) =>{ //otra vez el mismo fallo que llevo teniendo todo el fin de semana. Aparece en consola al intentar eliminar cualquier actividad que pListaActividades no es una funcion cuando no tiene sentido que lo sea...
-        
-        return actividad.id == pId; //aqui estoy buscando y capturando si hay algun objeto que tenga la misma id que busco
-    })
-
-    //Para usar splice necesito la posicion del objeto capturado en la variable actividadBorrar
-
-    var posicionActividad = pListaActividades.findIndex( (actividad) =>{
-
-         return actividad.id == actividadBorrar.id
-    });
+function eliminarActividad(e) {
     
-    pListaActividades.splice(posicionActividad, 1); //estoy sacando el objeto objetivo del array original con splice
-    
+    for (let i = 0; i< agendaActividades.length; i++){
 
-    var div = document.getElementsByTagName('div')[0]; div.innerHTML = ''; //div es un array de un solo elemento, por lo que selecciono la posicion '0' y lo que hacemos con el div.innerHTML es decir que todo el contenido del objeto que coincida con nuestra busqueda debe quedarse vacio.
+        seccionActividades.removeChild(e.target.parentNode); //porque me salta un error en la consola diciendo que Node no es una funcion?
 
-    pintar(pListaActividades, pListaActividades.length); 
+        actividadesBorradas = new Array()
+        actividadesBorradas = agendaActividades.splice(actividadArt, 1); //aqui estabamos
 
 }
-
-
-/******************************************************/
+}
